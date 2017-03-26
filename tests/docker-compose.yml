@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  demoapp:
+    build: demoapp
+    ports:
+      - 7272:7272
+    expose:
+      - 7272
+    networks:
+      - test
+
+  pybot:
+    image: ${image}
+    build:
+      context: ../${image}
+    volumes:
+      - ./robot/tests:/tests:ro
+      - ./results/${image}:/out:rw
+    depends_on:
+      - demoapp
+    networks:
+      - test
+
+networks:
+  test:
