@@ -7,7 +7,7 @@ export image=""
 export version=""
 
 browsers=(
-    # "chrome"
+    "chrome"
     "firefox"
 )
 

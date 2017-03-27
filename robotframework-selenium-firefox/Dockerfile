@@ -13,8 +13,8 @@ RUN pip install --no-cache-dir robotframework \
 COPY entry_point.sh /opt/bin/entry_point.sh
 RUN chmod +x /opt/bin/entry_point.sh
 
-ENV SCREEN_WIDTH 1360
-ENV SCREEN_HEIGHT 1020
-ENV SCREEN_DEPTH 24
+ENV SCREEN_WIDTH 1280
+ENV SCREEN_HEIGHT 720
+ENV SCREEN_DEPTH 16
 
 ENTRYPOINT [ "/opt/bin/entry_point.sh" ]
