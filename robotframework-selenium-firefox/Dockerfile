@@ -6,8 +6,9 @@ RUN apk add --no-cache \
     firefox-esr \
     xvfb
 
-RUN pip install --no-cache-dir robotframework \
-  robotframework-selenium2library \
+RUN pip install --no-cache-dir \
+  robotframework==3.0.2 \
+  robotframework-selenium2library==1.8.0 \
   selenium==2.53.6
 
 COPY entry_point.sh /opt/bin/entry_point.sh
