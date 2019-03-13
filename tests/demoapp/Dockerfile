@@ -1,8 +1,8 @@
-FROM  python:2.7-alpine
+FROM  python:3.7-alpine3.9
 
-RUN mkdir -p /opt/demoapp
+COPY server.py /opt/demoapp/
+COPY html /opt/demoapp/html/
 
-COPY . /opt/demoapp
-RUN chmod +x /opt/demoapp/server.py
+EXPOSE 7272
 
 ENTRYPOINT [ "/opt/demoapp/server.py" ]

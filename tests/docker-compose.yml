@@ -1,16 +1,14 @@
-version: '2'
+version: '3'
 
 services:
   demoapp:
     build: demoapp
     ports:
       - 7272:7272
-    expose:
-      - 7272
     networks:
       - test
 
-  pybot:
+  robot:
     image: ${image}
     build:
       context: ../${image}
