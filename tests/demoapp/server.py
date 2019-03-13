@@ -15,8 +15,8 @@ an argument from the command line.
 
 from os import chdir
 from os.path import abspath, dirname, join
-from SocketServer import TCPServer
-from SimpleHTTPServer import SimpleHTTPRequestHandler
+from socketserver import TCPServer
+from http.server import SimpleHTTPRequestHandler
 
 
 ROOT = join(dirname(abspath(__file__)), 'html')
@@ -31,12 +31,12 @@ class DemoServer(TCPServer):
 
     def serve(self, directory=ROOT):
         chdir(directory)
-        print 'Demo server starting on port %d.' % self.server_address[1]
+        print('Demo server starting on port %d.' % self.server_address[1])
         try:
             server.serve_forever()
         except KeyboardInterrupt:
             server.server_close()
-        print 'Demo server stopped.'
+        print('Demo server stopped.')
 
 
 if __name__ == '__main__':
@@ -44,6 +44,6 @@ if __name__ == '__main__':
     try:
         server = DemoServer(*sys.argv[1:])
     except (TypeError, ValueError):
-        print __doc__
+        print(__doc__)
     else:
         server.serve()

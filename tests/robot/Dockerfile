@@ -1,8 +1,8 @@
-FROM  python:2.7-alpine
+FROM  python:3.7-alpine3.9
 
 COPY requirements.txt /tmp/requirements.txt
-RUN  pip install -r /tmp/requirements.txt
-
 COPY tests /tests
 
-ENTRYPOINT [ "pybot" ]
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+ENTRYPOINT [ "robot" ]
